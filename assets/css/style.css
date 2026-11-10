@@ -1370,3 +1370,22 @@ h1,h2,h3{font-feature-settings:"palt" 1}
 /* 日本語の改行：1〜2文字だけが次行に落ちるのを防ぐ */
 p,li,dd{text-wrap:pretty}
 .ctaband .catch,.footer__catch p{word-break:keep-all; overflow-wrap:anywhere}
+
+/* ---------- 仕上げ 2 ---------- */
+/* 詰めたセクション（卒業生の声など）は、広げた余白の対象外に */
+.section--tight{padding-block:clamp(32px,3.4vw,52px)}
+.section--tight + .section--tight{padding-top:0}
+.ctaband p{max-width:48em}
+/* 代表の言葉：句読点の位置で折り返す */
+.pullquote{word-break:keep-all; overflow-wrap:anywhere}
+/* 卒業生カードの見出しも明朝の字間をそろえる */
+.voice__title{letter-spacing:.06em}
+.senpai .name{letter-spacing:.06em}
+/* 申し込みの流れ：番号の丸が左に寄っていた（.step p の margin:0 に負けていた） */
+.step .step__no{margin:0 auto 18px; font-family:var(--latin); font-weight:600; font-size:26px; color:var(--navy); font-variant-numeric:lining-nums; box-shadow:0 0 0 1px var(--navy), 0 0 0 7px var(--tint)}
+/* 解像度の低い写真を引き伸ばしてぼかさないよう、写真ブロックは写真の幅に合わせる */
+.split__media{width:fit-content; max-width:100%; margin-inline:auto}
+.split__media img{max-width:min(100%,460px); margin-inline:auto}
+/* インタビューの質問：赤い太字の連続を避け、藍の文字＋赤い細罫で示す */
+.h4--q{color:var(--navy); padding-left:14px; border-left:2px solid var(--red); line-height:1.7; letter-spacing:.04em}
+.deflist dt,.deflist dd{min-width:0; overflow-wrap:anywhere}
