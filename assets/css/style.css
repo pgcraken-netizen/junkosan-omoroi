@@ -5,35 +5,37 @@
    ============================================================ */
 
 :root{
-  /* Brand */
-  --navy-footer:#061B3C;
+  /* Brand — ロゴの赤×青を、落ち着いた「深紅×藍」に整えて使う */
+  --navy-footer:#071A38;
   --header-pad:clamp(18px,2.6vw,46px);
-  --red:#D5001F;
-  --red-dark:#B00019;
-  --blue:#0B5FD0;
-  --navy:#083B86;
-  --navy-deep:#052A63;
-  --ink:#101B2D;
-  --tint:#EDF3FD;
-  --red-tint:#FCEEF0;
+  --red:#C8102E;
+  --red-dark:#A00C25;
+  --blue:#1A56B8;
+  --navy:#0E336E;
+  --navy-deep:#0A2552;
+  --ink:#0F1B30;
+  --tint:#F1F5FB;
+  --red-tint:#FBEFF1;
+  --gold:#B8955A;
 
   /* Neutrals (blue-biased) */
   --paper:#FFFFFF;
-  --paper-2:#F7F9FC;
-  --line:#E2E8F2;
-  --line-strong:#C9D4E4;
-  --body:#37455A;
-  --muted:#6C7A8D;
+  --paper-2:#F8FAFD;
+  --line:#E4E9F1;
+  --line-strong:#CCD6E4;
+  --body:#3A4659;
+  --muted:#6E7B8E;
 
-  /* Form */
-  --r-card:8px;
+  /* Form — 角丸は「カード14px／画像12px／ボタン丸」の3種類だけ */
+  --r-card:14px;
   --r-img:12px;
   --r-pill:999px;
-  --shadow:0 8px 24px rgba(16,27,45,.06);
-  --shadow-lift:0 14px 34px rgba(16,27,45,.11);
+  --shadow:0 10px 30px rgba(15,27,48,.06);
+  --shadow-lift:0 18px 40px rgba(15,27,48,.11);
 
   --head:"Shippori Mincho B1","Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
-  --script:"Klee One","Shippori Mincho B1",serif;
+  --latin:"Cormorant Garamond","Shippori Mincho B1",serif;
+  --script:var(--latin);
   --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
 
   --header-h:88px;
@@ -173,26 +175,10 @@ li{margin-bottom:.4em}
 .hero__sub b{font-weight:700; color:var(--ink)}
 .hero .btn-row{gap:10px; max-width:none; flex-wrap:nowrap}
 .hero .btn{min-height:clamp(50px,3.6vw,60px); font-size:clamp(14px,1.05vw,16.5px); padding:0 clamp(20px,1.8vw,30px); white-space:nowrap}
-.hero__note{margin-top:16px; color:var(--muted); font-size:11.8px; letter-spacing:.03em; line-height:1.7}
+
 /* 手書きのひとこと（現在はヒーロー画像に含まれるため未使用） */
-.hero__hand{
-  position:absolute; right:clamp(24px,7vw,110px); top:clamp(70px,13vw,150px); z-index:6; margin:0;
-  font-family:var(--script); font-weight:600; color:var(--navy);
-  font-size:clamp(22px,2.9vw,38px); line-height:1.55; letter-spacing:.06em;
-  text-shadow:0 2px 16px rgba(255,255,255,.95), 0 0 34px rgba(255,255,255,.75);
-}
-.hero__hand svg{display:block; width:100%; height:18px; margin-top:6px; overflow:visible}
-.hero__hand small{
-  display:block; margin-top:16px; font-family:var(--sans); font-weight:500;
-  font-size:13px; letter-spacing:.08em; color:var(--navy); line-height:1.8;
-}
-.hero__hand small b{display:block; font-family:var(--head); font-size:17px; letter-spacing:.1em}
 
 /* 舞う羽 */
-.hero__feather{position:absolute; z-index:4; pointer-events:none; background:url(../img/motif-leaf.png) center/contain no-repeat}
-.hero__feather--1{right:4%;  top:9%;   width:118px; height:96px;  transform:rotate(-12deg); opacity:.85}
-.hero__feather--2{right:30%; top:16%;  width:76px;  height:62px;  transform:rotate(22deg);  opacity:.5}
-.hero__feather--3{right:9%;  top:62%;  width:62px;  height:50px;  transform:rotate(-34deg); opacity:.4}
 
 /* Sub page header */
 .pagehead{position:relative; background:var(--navy-deep); overflow:hidden; padding-block:56px 62px; border-bottom:1px solid var(--line)}
@@ -243,8 +229,6 @@ li{margin-bottom:.4em}
 
 h3.h3{font-size:20px; margin:0 0 14px; letter-spacing:.03em}
 h4.h4{font-family:var(--sans); font-size:15.5px; font-weight:700; color:var(--navy); margin:0 0 8px}
-
-.brush-divider{display:block; width:100%; height:auto}
 
 /* ============================================================
    Trust bar
@@ -325,16 +309,6 @@ h4.h4{font-family:var(--sans); font-size:15.5px; font-weight:700; color:var(--na
 .voice--compact .voice__text{font-size:14.5px; line-height:1.95}
 
 /* 声の抜粋カード（トップページ用） */
-.vcard{background:#fff; border:1px solid var(--line); border-radius:var(--r-card); padding:28px 26px 24px; display:flex; flex-direction:column}
-.vcard__quote{
-  font-family:var(--head); font-size:17px; line-height:1.8; color:var(--navy);
-  letter-spacing:.03em; margin:0 0 14px; padding-left:16px; border-left:2px solid var(--red);
-}
-.vcard__body{font-size:14px; line-height:1.95; margin-bottom:22px}
-.vcard__who{margin-top:auto; display:flex; align-items:center; gap:13px; padding-top:16px; border-top:1px solid var(--line)}
-.vcard__who img{width:50px; height:50px; border-radius:50%; object-fit:cover; object-position:50% 28%; flex:0 0 auto}
-.vcard__who span{font-size:12px; color:var(--muted); line-height:1.6}
-.vcard__who b{display:block; font-family:var(--sans); font-size:14.5px; color:var(--ink); letter-spacing:.03em; font-weight:700}
 
 /* Tabs */
 .tabs{display:flex; flex-wrap:wrap; gap:4px; border-bottom:1px solid var(--line); margin-bottom:32px}
@@ -577,7 +551,7 @@ table.tbl tr.is-total td{background:var(--tint)}
 /* 筆のリボン */
 .ribbon{position:absolute; left:-2%; width:104%; pointer-events:none; display:block}
 .ribbon--hero{bottom:-8px; z-index:4; height:clamp(120px,17vw,250px)}
-.ribbon--section{top:-58px; z-index:1; height:130px; opacity:.9}
+
 .ribbon--footer{top:-52px; z-index:1; height:118px}
 .ribbon--head{bottom:-14px; z-index:3; height:96px; opacity:.95}
 
@@ -585,41 +559,17 @@ table.tbl tr.is-total td{background:var(--tint)}
 .has-ribbon > .container{position:relative; z-index:2}
 
 /* 円相（筆の丸）アイコン */
-.enso{
-  width:74px; height:74px; margin:0 auto 18px; display:flex; align-items:center; justify-content:center;
-  background:var(--tint); border-radius:50%;
-}
-.section--tint .enso,.section--paper .enso{background:#fff}
-.enso__icon{width:50%; height:50%; display:block}
-.enso--sm{width:60px; height:60px; margin-bottom:14px}
 
 .sec-title .num{color:var(--red); font-size:1.3em; padding:0 .04em; letter-spacing:0}
 
 /* ============================================================
    Feature row（罫で区切る4カラム）
    ============================================================ */
-.feature-row{display:grid; grid-template-columns:repeat(4,1fr); gap:0}
-.feature{text-align:center; padding:6px clamp(12px,2vw,26px); position:relative}
-.feature + .feature::before{
-  content:""; position:absolute; left:0; top:14%; bottom:14%; width:1px;
-  background:linear-gradient(180deg,rgba(201,212,228,0),var(--line-strong),rgba(201,212,228,0));
-}
-.feature h3{font-size:clamp(17px,2.2vw,21px); letter-spacing:.06em; margin-bottom:14px}
-.feature p{font-size:13.8px; line-height:2; color:var(--body); max-width:17em; margin-inline:auto; text-align:left}
 
 /* ============================================================
    News list（タグ付き）
    ============================================================ */
-.newsbox{background:#fff; border:1px solid var(--line); border-radius:var(--r-card); padding:26px 30px; box-shadow:var(--shadow)}
-.newsbox__head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:6px}
-.newsbox__head h2{font-size:21px; letter-spacing:.06em}
-.newsbox__head a{font-size:12.5px; font-weight:700; text-decoration:none}
-.chip{
-  display:inline-block; min-width:66px; text-align:center; font-size:11px; font-weight:700;
-  letter-spacing:.08em; color:#fff; background:var(--blue); border-radius:4px; padding:3px 10px;
-  flex:0 0 auto;
-}
-.chip--news{background:var(--red)}
+
 .blogfeed a{gap:6px 16px}
 
 /* ============================================================
@@ -725,25 +675,10 @@ table.tbl tr.is-total td{background:var(--tint)}
 .bento .deflist dd{font-size:13.2px; padding:14px 0 14px 6px; line-height:1.8}
 
 /* 写真＋手書きのカード */
-.bento__card--photo{padding:0; overflow:hidden; position:relative; border:0; min-height:280px}
-.bento__card--photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 34%}
-.bento__card--photo::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg,rgba(5,42,99,.12) 0%,rgba(5,42,99,.5) 100%);
-}
-.bento__card--photo .hand{
-  position:relative; z-index:2; margin-top:auto; padding:24px 22px 26px; color:#fff; white-space:nowrap;
-  font-family:var(--script); font-weight:600; font-size:clamp(17px,1.6vw,21px); line-height:1.7;
-  letter-spacing:.05em; text-shadow:0 2px 14px rgba(5,20,45,.55);
-}
 
 /* 自立塾とはカードの中の写真 */
 .bento__photo{position:relative; margin:22px 0 24px; border-radius:10px; overflow:hidden; aspect-ratio:16/9}
 .bento__photo img{width:100%; height:100%; object-fit:cover; object-position:50% 40%}
-.bento__photo .hand{
-  position:absolute; right:18px; bottom:14px; color:#fff; font-family:var(--script); font-weight:600;
-  font-size:19px; letter-spacing:.06em; text-shadow:0 2px 12px rgba(5,20,45,.65);
-}
 
 /* ============================================================
    Portal（各ページへの案内カード）
@@ -788,16 +723,16 @@ table.tbl tr.is-total td{background:var(--tint)}
   .header__tagline{display:none}
 }
 @media (max-width:1180px){
-  .hero__hand{right:20px; top:64px; font-size:clamp(20px,2.6vw,30px)}
-  .hero__feather--1{width:104px; height:85px}
-  .hero__feather--2,.hero__feather--3{display:none}
+  
+  
+  
   .header__tagline{display:none}
 }
 @media (max-width:1080px){
   .header__nav a{padding:8px 8px; font-size:13px}
   .header__tel{display:none}
   .bento{grid-template-columns:1fr 1fr}
-  .bento__card--photo{grid-column:1 / -1; min-height:200px}
+  
   .portal{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:1080px) and (min-width:621px){
@@ -827,18 +762,18 @@ table.tbl tr.is-total td{background:var(--tint)}
   .section{padding-block:60px}
   .hero__media{min-height:auto}
   .hero__inner{padding-block:56px 92px}
-  .feature-row{grid-template-columns:repeat(2,1fr); gap:34px 0}
-  .feature:nth-child(3)::before{display:none}
-  .ribbon--section{top:-40px; height:96px}
-  .newsbox{padding:22px 20px}
+  
+  
+  
+  
   .ctaband{padding-block:74px 66px}
   .pagehead{padding-block:52px 66px}
-  .pagehead__inner::after{width:190px; height:202px; right:-60px; opacity:.13}
+  
   .bento__card{padding:26px 24px 24px}
 }
 @media (max-width:760px){
   .bento{grid-template-columns:1fr}
-  .bento__card--photo{min-height:190px}
+  
   .reason-grid{gap:16px 18px}
 }
 @media (max-width:620px){
@@ -865,15 +800,11 @@ table.tbl tr.is-total td{background:var(--tint)}
   .hero__eyebrow::before{width:24px}
   .hero h1{font-size:clamp(25px,7.4vw,33px); line-height:1.45; margin-bottom:16px; text-shadow:none}
   .hero__sub{font-size:14.5px; line-height:1.9; margin-bottom:22px}
-  .hero__note{margin-top:18px; font-size:11.5px}
-  .hero__hand{
-    top:94px; bottom:auto; right:16px; left:auto;
-    font-size:21px; line-height:1.6; max-width:60%;
-    text-shadow:0 2px 10px #fff, 0 0 20px rgba(255,255,255,.98), 0 0 38px rgba(255,255,255,.85);
-  }
-  .hero__hand svg{height:11px; margin-top:2px}
-  .hero__hand small{display:none}
-  .hero__feather--1{width:74px; height:60px; top:6%; right:3%}
+  
+  
+  
+  
+  
   .hero__brush,.ribbon--hero{height:56px}
 
   .trust__grid{grid-template-columns:repeat(4,1fr)}
@@ -887,11 +818,10 @@ table.tbl tr.is-total td{background:var(--tint)}
   .faq .answer{padding-left:22px}
   .step{padding:28px 20px 24px}
   .portrait{width:min(280px,80%)}
-  .feature-row{grid-template-columns:1fr; gap:30px 0}
-  .feature + .feature::before{left:18%; right:18%; top:-15px; bottom:auto; width:auto; height:1px;
-    background:linear-gradient(90deg,rgba(201,212,228,0),var(--line-strong),rgba(201,212,228,0))}
-  .enso{width:64px; height:64px}
-  .newsbox__head{flex-direction:column; gap:4px}
+  
+  
+  
+  
   .footer__script{font-size:16px}
 }
 @media (max-width:400px){
@@ -978,12 +908,6 @@ table.tbl tr.is-total td{background:var(--tint)}
 .bento__text{display:flex; flex-direction:column; flex:1 1 auto; min-width:0}
 .bento__photo{position:relative; flex:0 0 clamp(150px,15vw,260px); border-radius:10px; overflow:hidden}
 .bento__photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 40%}
-.bento__photo .hand{
-  position:absolute; right:10px; top:14%; z-index:2; text-align:right;
-  font-family:var(--script); font-weight:600; color:var(--navy);
-  font-size:clamp(14px,1.15vw,20px); line-height:1.6; letter-spacing:.04em;
-  text-shadow:0 2px 12px rgba(255,255,255,.95), 0 0 24px rgba(255,255,255,.9);
-}
 
 /* REASON */
 .bento__card--reason{background:linear-gradient(168deg,#FFFFFF 0%,var(--tint) 100%)}
@@ -996,13 +920,6 @@ table.tbl tr.is-total td{background:var(--tint)}
 /* 願いのカード */
 .bento__card--wish{padding:0; border:0; overflow:hidden; position:relative; justify-content:flex-end; min-height:230px}
 .bento__card--wish img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:56% 40%}
-.bento__card--wish .hand{
-  position:relative; z-index:2; margin:0; padding:clamp(18px,1.6vw,26px);
-  font-family:var(--script); font-weight:600; color:var(--navy);
-  font-size:clamp(16px,1.35vw,23px); line-height:1.55; letter-spacing:.04em;
-  text-shadow:0 2px 12px rgba(255,255,255,.95), 0 0 26px rgba(255,255,255,.92);
-}
-.bento__card--wish .hand small{display:block; margin-top:8px; font-size:.64em; letter-spacing:.02em}
 
 /* ---------- ポータルカード ---------- */
 .section--portal{padding-block:clamp(20px,2vw,34px) clamp(46px,5vw,86px)}
@@ -1042,7 +959,7 @@ table.tbl tr.is-total td{background:var(--tint)}
   .bento{grid-template-columns:1fr}
   .bento__card--about{flex-direction:column}
   .bento__photo{flex:0 0 auto; height:210px}
-  .bento__photo .hand{top:auto; bottom:14px}
+  
   .portal{grid-template-columns:repeat(2,1fr)}
   .trust__grid{grid-template-columns:repeat(4,1fr); padding-inline:6px}
   .hero__inner{padding-block:34px 84px}
@@ -1101,17 +1018,9 @@ table.tbl tr.is-total td{background:var(--tint)}
 /* ABOUTカード：写真を大きく、手書きを右上に */
 .bento__card--about{align-items:stretch}
 .bento__photo{flex:0 0 clamp(170px,17.5vw,300px); border-radius:12px}
-.bento__photo .hand{
-  right:12px; top:11%; font-size:clamp(15px,1.3vw,22px); line-height:1.65;
-  text-shadow:0 2px 12px rgba(255,255,255,.96), 0 0 26px rgba(255,255,255,.9);
-}
 
 /* 願いカード：手書きを中央へ、大きく */
 .bento__card--wish{justify-content:center; align-items:flex-start}
-.bento__card--wish .hand{
-  padding:clamp(18px,1.8vw,30px); font-size:clamp(17px,1.5vw,26px); line-height:1.6;
-}
-.bento__card--wish .hand small{font-size:.58em; margin-top:10px; letter-spacing:.04em}
 
 /* 実績バー：数字をひとまわり大きく */
 .trust__num{font-size:clamp(20px,1.72vw,30px)}
@@ -1147,16 +1056,9 @@ table.tbl tr.is-total td{background:var(--tint)}
 /* ---------- ベントー：左は足跡モチーフ、右は羽を引いた構図 ---------- */
 .bento__photo{background:linear-gradient(180deg,#CEE4FA 0%,#EAF4FF 55%,#FFFFFF 100%)}
 .bento__photo img{object-position:50% 52%}
-.bento__photo .hand{
-  right:auto; left:50%; transform:translateX(-50%); top:7%; text-align:center; white-space:nowrap;
-}
+
 .bento__card--wish img{object-position:44% 46%}
-.bento__card--wish .hand{
-  position:absolute; left:0; right:0; top:0; margin:0;
-  padding:clamp(18px,1.7vw,28px) clamp(16px,1.5vw,26px) clamp(30px,3vw,46px);
-  background:linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.62) 55%, rgba(255,255,255,0) 100%);
-  text-shadow:0 1px 6px rgba(255,255,255,.9);
-}
+
 .bento__card--wish{justify-content:flex-start}
 
 /* 羽カード：人物を外し、羽と空を主役に */
@@ -1172,43 +1074,10 @@ table.tbl tr.is-total td{background:var(--tint)}
 .portal__card .eyebrow{font-size:9px; letter-spacing:.14em}
 
 /* ---------- 足跡カード：赤青の躍動する筆 ＋ 進む足あと ---------- */
-.bento__photo--feet{
-  background:linear-gradient(168deg,#D6E8FC 0%,#EBF4FF 46%,#FFFFFF 100%);
-  overflow:hidden;
-}
-.bento__photo--feet .feet-fx{position:absolute; inset:0; width:100%; height:100%; display:block}
-.bento__photo--feet .trail{
-  position:absolute; display:block; aspect-ratio:420/456;
-  background:url(../img/motif-feet.png) center/contain no-repeat;
-  filter:drop-shadow(0 6px 14px rgba(11,95,208,.28));
-}
-.bento__photo--feet .trail--1{width:36%; left:9%;  bottom:7%;  transform:rotate(-12deg)}
-.bento__photo--feet .trail--2{width:27%; left:40%; bottom:28%; transform:rotate(6deg);  opacity:.72}
-.bento__photo--feet .trail--3{width:19%; left:66%; bottom:48%; transform:rotate(-4deg); opacity:.44}
-.bento__photo--feet .hand{
-  top:5%; z-index:3; color:var(--navy);
-  text-shadow:0 2px 12px rgba(255,255,255,.96), 0 0 22px rgba(255,255,255,.9);
-}
-@media (prefers-reduced-motion:no-preference){
-  .bento__photo--feet .trail{transition:transform .5s ease}
-  .bento__card--about:hover .trail--1{transform:rotate(-12deg) translate(3px,-4px)}
-  .bento__card--about:hover .trail--2{transform:rotate(6deg) translate(5px,-7px)}
-  .bento__card--about:hover .trail--3{transform:rotate(-4deg) translate(7px,-10px)}
-}
 
 /* 足跡を道の進行方向に合わせる（右上へ進む） */
-.bento__photo--feet .trail{transform-origin:50% 50%}
-.bento__photo--feet .trail--1{width:30%; left:5%;  bottom:11%; transform:rotate(60deg)}
-.bento__photo--feet .trail--2{width:23%; left:37%; bottom:35%; transform:rotate(57deg); opacity:.7}
-.bento__photo--feet .trail--3{width:17%; left:67%; bottom:57%; transform:rotate(54deg); opacity:.42}
-@media (prefers-reduced-motion:no-preference){
-  .bento__card--about:hover .bento__photo--feet .trail--1{transform:rotate(60deg) translate(-5px,-3px)}
-  .bento__card--about:hover .bento__photo--feet .trail--2{transform:rotate(57deg) translate(-8px,-5px)}
-  .bento__card--about:hover .bento__photo--feet .trail--3{transform:rotate(54deg) translate(-11px,-7px)}
-}
 
 /* 足跡の縦横比を新しい素材に合わせる（枠が出ないよう影も控えめに） */
-.bento__photo--feet .trail{aspect-ratio:395/422; filter:drop-shadow(0 5px 11px rgba(11,95,208,.22))}
 
 /* ============================================================
    PC ⇄ スマホ 表示切替ボタン
@@ -1291,7 +1160,7 @@ body.is-spview .viewtoggle{left:auto; right:14px; bottom:auto; top:70px}
   .btn{font-size:14px}
 
   /* 画像は切り取らず、全体が見えるように */
-  .hero__photo{aspect-ratio:724/436}
+  .hero__photo{aspect-ratio:724/420}
   .hero__photo img{object-position:center}
   .bento__card--about{gap:16px}
   .bento__photo{flex:0 0 auto; height:auto; aspect-ratio:960/640; border-radius:10px}
@@ -1337,3 +1206,167 @@ html{overflow-x:clip}
   }
   .bento__card--wish{padding:0}
 }
+
+/* ============================================================
+   ブラッシュアップ v2 ——「凛として、やさしく、強い」
+   ------------------------------------------------------------
+   見る人   ：自信を持てずにいる少女・思春期の女性とそのご家族
+   目指す印象：背筋の伸びた大人の女性が、静かに、力強く活躍している
+   ルール   ：
+   ・見出しは明朝＋広めの字間（凛）／本文はゴシックでゆったり（やさしさ）
+   ・英字ラベルは Cormorant Garamond の大文字＋細い罫（品格）
+   ・赤はアクセントだけ。面は白と藍で取り、余白を多く残す
+   ・ボタンは「赤＝申し込み」「藍の線＝ページ移動」の2種類に統一
+   ・角丸は カード14px／画像12px／ボタン丸 の3種類に統一
+   ※ これより上の指定を、この層でまとめて整えています
+   ============================================================ */
+
+/* ---------- 文字組み ---------- */
+body{line-height:1.95; letter-spacing:.03em}
+h1,h2,h3{font-feature-settings:"palt" 1}
+.sec-title{letter-spacing:.1em; line-height:1.6}
+.sec-lead{line-height:2}
+.pagehead h1{letter-spacing:.12em}
+
+/* 英字ラベル：細い罫＋Cormorant の大文字 */
+.eyebrow{
+  display:flex; align-items:center; gap:12px;
+  font-family:var(--latin); font-size:14px; font-weight:600; font-style:normal;
+  letter-spacing:.3em; text-transform:uppercase; line-height:1.4; color:var(--red);
+}
+.eyebrow::before{content:""; width:26px; height:1px; background:currentColor; flex:0 0 auto; opacity:.9}
+.eyebrow--blue{color:var(--navy)}
+.pagehead .eyebrow{color:rgba(255,255,255,.82)}
+.center .eyebrow,.eyebrow.center{justify-content:center}
+
+/* ---------- ボタン ---------- */
+.btn{letter-spacing:.08em}
+.btn--primary{background:var(--red); box-shadow:0 8px 22px rgba(200,16,46,.2)}
+.btn--primary:hover{background:var(--red-dark); box-shadow:0 12px 26px rgba(200,16,46,.26)}
+.btn--ghost{background:rgba(255,255,255,.92); color:var(--navy); border:1px solid var(--navy)}
+.btn--ghost:hover{background:var(--navy); color:#fff}
+.btn--white{color:var(--red)}
+.btn--outline-light{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.62)}
+.btn--outline-light:hover{background:rgba(255,255,255,.1); border-color:#fff; transform:translateY(-1px)}
+.bento__card .btn{white-space:nowrap}
+
+/* ---------- ヒーロー ---------- */
+.hero__eyebrow{color:var(--navy); font-weight:500; letter-spacing:.12em}
+.hero__eyebrow::before{width:30px; height:1px; background:var(--red)}
+.hero h1{font-weight:700; letter-spacing:.1em; line-height:1.5}
+.hero h1 .accent{color:var(--red)}
+.hero__sub{letter-spacing:.06em}
+.hero__credit span{letter-spacing:.16em}
+@media (min-width:921px){
+  /* 写真の上端・左端をぼかして、背景の空となじませる（四角い切れ目を出さない） */
+  .hero__photo img{
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 6%,#000 16%),linear-gradient(180deg,transparent 0,#000 10%);
+    -webkit-mask-composite:source-in;
+            mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 6%,#000 16%),linear-gradient(180deg,transparent 0,#000 10%);
+            mask-composite:intersect;
+  }
+  /* 筆のリボンは細く、主張しすぎない */
+  .ribbon--hero{height:clamp(70px,7.6vw,132px)}
+}
+
+/* ---------- 実績バー ---------- */
+.trust{background:linear-gradient(180deg,var(--tint),#fff)}
+.trust__item{background:transparent}
+.trust__num{color:var(--navy); letter-spacing:.04em}
+.trust__label{letter-spacing:.05em}
+
+/* ---------- セクションの余白 ---------- */
+.section{padding-block:clamp(56px,6.4vw,96px)}
+.section--bento{padding-block:clamp(48px,5.4vw,88px) clamp(20px,2.4vw,36px)}
+
+/* ---------- ベントー ---------- */
+.bento__card{border-radius:var(--r-card); box-shadow:var(--shadow)}
+.bento__card h2{letter-spacing:.1em}
+.reason__no{font-family:var(--latin); font-weight:600; color:var(--red); font-size:clamp(22px,1.7vw,28px); line-height:1; letter-spacing:.02em}
+.reason h3{letter-spacing:.06em}
+.reason p{font-size:clamp(12px,.86vw,13.5px); line-height:1.8}
+
+/* ---------- 各ページへの案内：6枚を 3×2 でゆったり ---------- */
+.section--portal .container--wide{max-width:1290px}
+.portal{grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.5vw,22px)}
+.portal__card{border-radius:var(--r-card); box-shadow:var(--shadow); min-height:156px}
+.portal__card:hover{box-shadow:var(--shadow-lift)}
+.portal__body{padding:clamp(18px,1.6vw,26px) 12px clamp(18px,1.6vw,24px) clamp(18px,1.7vw,28px)}
+.portal__card .eyebrow{font-size:12px; letter-spacing:.26em; margin-bottom:8px}
+.portal__card .eyebrow::before{width:18px}
+.portal__card h2{font-size:clamp(16px,1.3vw,19px); letter-spacing:.1em; line-height:1.5; margin-bottom:8px}
+.portal__card p{font-size:clamp(12.5px,.92vw,13.5px); line-height:1.8; margin-bottom:12px}
+.portal__more{font-size:12.5px; letter-spacing:.08em; color:var(--navy)}
+.portal__thumb{flex:0 0 clamp(118px,10.5vw,156px)}
+.portal__thumb img{filter:saturate(.9); transition:transform .5s ease}
+.portal__card:hover .portal__thumb img{transform:scale(1.04)}
+
+/* ---------- 写真のトーン統一 ---------- */
+.split__media img,.senpai img,.classcard__img img,.voice__photo img{filter:saturate(.92)}
+
+/* ---------- FAQ・フォーム ---------- */
+.faq summary::before{font-family:var(--latin); font-size:21px; font-weight:600; line-height:1}
+.faq summary{letter-spacing:.04em}
+.field input,.field select,.field textarea{border-radius:10px}
+
+/* ---------- CTA帯・フッター ---------- */
+.ctaband .catch{letter-spacing:.12em}
+.footer__catch p{letter-spacing:.12em}
+.footer__script{font-family:var(--latin); font-style:italic; font-weight:500; font-size:clamp(17px,1.4vw,22px); letter-spacing:.06em}
+.footer__script em{font-size:.78em}
+.footer__tagline{letter-spacing:.12em}
+
+/* ---------- 表示切替ボタン：本文に重ならない小さな丸ボタンに ---------- */
+.viewtoggle{width:44px; padding:0; justify-content:center; gap:0; opacity:.7; left:16px; bottom:16px; overflow:hidden; white-space:nowrap}
+.viewtoggle__label{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+.viewtoggle:hover,.viewtoggle:focus-visible{opacity:1; width:auto; padding:0 16px 0 13px; gap:8px; transform:none}
+.viewtoggle:hover .viewtoggle__label,.viewtoggle:focus-visible .viewtoggle__label{position:static; width:auto; height:auto; clip:auto}
+
+/* ---------- レスポンシブ（この層の指定を幅ごとに上書き） ---------- */
+@media (max-width:1080px){
+  .portal{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:920px){
+  .viewtoggle{width:38px; height:38px; left:10px; bottom:80px}
+}
+@media (max-width:620px){
+  .portal{grid-template-columns:1fr; gap:12px}
+  .portal__card{min-height:0}
+  .portal__thumb{flex-basis:104px}
+  .portal__body{padding:16px 10px 16px 18px}
+  .portal__card h2{font-size:15.5px}
+  .portal__card p{font-size:12.5px}
+  .eyebrow{font-size:12.5px; letter-spacing:.24em}
+  .reason__no{font-size:20px}
+  .reason p{font-size:12px}
+  .hero h1{letter-spacing:.08em}
+  .viewtoggle{width:36px; height:36px; bottom:78px; opacity:.6}
+}
+
+/* ---------- 仕上げ ---------- */
+/* Cormorant の数字は飾り数字（0がo に見える）なので、そろった数字に */
+.eyebrow,.reason__no,.faq summary::before,.footer__script{font-variant-numeric:lining-nums}
+/* ヘッダー：キャッチ文は余裕のある幅だけ表示（1281〜1560px で右端のボタンがはみ出していた） */
+@media (max-width:1560px){ .header__tagline{display:none} }
+/* ABOUTカード：狭い段で手打ちの改行が不自然な折り返しを生むため、自然に流す */
+.bento__text p br{display:none}
+.bento__photo img{object-position:50% 0}
+/* 写真の白い縁が見えないよう、ほんの少しだけ寄せる */
+.portal__thumb img{transform:scale(1.04)}
+.portal__card:hover .portal__thumb img{transform:scale(1.08)}
+/* CTA帯の文章が1文字だけ次の行に落ちないように */
+.ctaband p{max-width:44em}
+@media (max-width:620px){
+  /* 選ばれる理由：2列だと1行7〜8文字で窮屈なので1列に */
+  .reason-grid{grid-template-columns:1fr; gap:14px}
+  .reason{gap:14px; align-items:baseline}
+  .reason__no{min-width:1.6em}
+}
+@media (max-width:479px){
+  /* 実績バー 2×2：左端に出ていた縦罫を消し、2段目の上に罫を */
+  .trust__item:nth-child(odd){box-shadow:none}
+  .trust__item:nth-child(n+3){border-top:1px solid #DCE6F5}
+}
+/* 日本語の改行：1〜2文字だけが次行に落ちるのを防ぐ */
+p,li,dd{text-wrap:pretty}
+.ctaband .catch,.footer__catch p{word-break:keep-all; overflow-wrap:anywhere}
