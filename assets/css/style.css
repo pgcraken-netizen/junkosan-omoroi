@@ -24,7 +24,7 @@
   --line:#E4E9F1;
   --line-strong:#CCD6E4;
   --body:#3A4659;
-  --muted:#6E7B8E;
+  --muted:#5A6779;
 
   /* Form — 角丸は「カード14px／画像12px／ボタン丸」の3種類だけ */
   --r-card:14px;
@@ -1389,3 +1389,7 @@ p,li,dd{text-wrap:pretty}
 /* インタビューの質問：赤い太字の連続を避け、藍の文字＋赤い細罫で示す */
 .h4--q{color:var(--navy); padding-left:14px; border-left:2px solid var(--red); line-height:1.7; letter-spacing:.04em}
 .deflist dt,.deflist dd{min-width:0; overflow-wrap:anywhere}
+
+/* ---------- 読みやすさ（WCAG AA のコントラスト 4.5:1 以上に） ---------- */
+.footer__bottom{color:rgba(205,220,242,.72)}
+.footer__office a{text-decoration:underline; text-decoration-color:rgba(226,235,248,.45); text-underline-offset:3px}
