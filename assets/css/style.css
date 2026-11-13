@@ -1393,3 +1393,48 @@ p,li,dd{text-wrap:pretty}
 /* ---------- 読みやすさ（WCAG AA のコントラスト 4.5:1 以上に） ---------- */
 .footer__bottom{color:rgba(205,220,242,.72)}
 .footer__office a{text-decoration:underline; text-decoration-color:rgba(226,235,248,.45); text-underline-offset:3px}
+
+/* ============================================================
+   実写とイラストの調和
+   ------------------------------------------------------------
+   ・イラスト（水彩の空・羽・リボン）は「上部の世界観」＝ヒーローとベントーだけ
+   ・実写は「中身・事実」を語る場所で使い、すべて同じ扱いにそろえる
+       角丸12px の“はめ込み額縁”／同じ色調（彩度を少し抑え、ほんのり明るく）
+       ／ごく薄い内側の罫で、白地との境目を上品に
+   ・顔が切れないよう、写真ごとに焦点（--fp）を指定
+   ============================================================ */
+.portal__card{align-items:center}
+.portal__thumb{
+  flex:0 0 auto; width:clamp(108px,32%,150px); aspect-ratio:1/1;
+  margin:14px 14px 14px 0; border-radius:var(--r-img); overflow:hidden; position:relative; align-self:center;
+}
+.portal__thumb img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  object-position:var(--fp,50% 40%); transform:none;
+}
+.portal__card:hover .portal__thumb img{transform:scale(1.05)}
+
+/* 実写の色調をそろえる */
+.portal__thumb img,.classcard__img img,.senpai img,.voice__photo img,.split__media img,.medialogos img{
+  filter:saturate(.88) contrast(1.03) brightness(1.02);
+}
+.portal__thumb::after,.voice__photo::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(15,27,48,.07);
+}
+.voice__photo{position:relative}
+
+/* フッターの表示切替（タッチ端末のスマホ幅だけ） */
+.viewswitch{display:none; background:none; border:0; padding:0; font:inherit; color:rgba(205,220,242,.85);
+  text-decoration:underline; text-underline-offset:3px; cursor:pointer}
+
+@media (max-width:920px){
+  .viewtoggle{display:none}
+  .viewswitch{display:inline}
+}
+@media (max-width:620px){
+  .portal__thumb{width:clamp(96px,30%,128px); margin:12px 12px 12px 0}
+  .portal__body{padding:16px 6px 16px 18px}
+  /* 案内カードは文が短いので、意味の区切りの改行をスマホでも生かす */
+  .portal__card p br{display:inline}
+}

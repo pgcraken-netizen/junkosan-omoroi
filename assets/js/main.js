@@ -141,6 +141,7 @@
 
   // プレビュー内ではボタンと固定バーを隠す
   if (inFrame) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-viewswitch]'), function (b) { b.remove(); });
     toggle.remove();
     if (frame) frame.remove();
     return;
@@ -154,8 +155,14 @@
   var isTouch = window.matchMedia('(pointer: coarse)').matches
               || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+  // スマホでは浮きボタンを本文に重ねず、フッターの文字リンクで切り替える
+  var switches = document.querySelectorAll('[data-viewswitch]');
+
   function setPcView(on) {
     viewport.setAttribute('content', on ? PC : SP);
+    Array.prototype.forEach.call(switches, function (b) {
+      b.textContent = on ? 'スマホ表示に戻す' : 'PC表示に切り替え';
+    });
     toggle.classList.toggle('is-pc', on);
     toggle.setAttribute('aria-pressed', String(on));
     label.textContent = on ? 'スマホ表示' : 'PC表示';
@@ -181,11 +188,12 @@
     var saved = null;
     try { saved = localStorage.getItem('jj-view'); } catch (e) {}
     if (saved === 'pc') setPcView(true); else setPcView(false);
-    toggle.addEventListener('click', function () {
-      setPcView(!toggle.classList.contains('is-pc'));
-    });
+    var flip = function () { setPcView(!toggle.classList.contains('is-pc')); };
+    toggle.addEventListener('click', flip);
+    Array.prototype.forEach.call(switches, function (b) { b.addEventListener('click', flip); });
   } else {
-    // PC：ボタンでスマホ表示のプレビューを開く
+    // PC：ボタンでスマホ表示のプレビューを開く（フッターの切替はタッチ端末専用）
+    Array.prototype.forEach.call(switches, function (b) { b.remove(); });
     label.textContent = 'スマホ表示';
     toggle.addEventListener('click', openPreview);
     closeBtn.addEventListener('click', closePreview);
